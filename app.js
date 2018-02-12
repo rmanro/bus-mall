@@ -1,6 +1,6 @@
-function Picture (name, filepath, numShown, numClicked, htmlID) {
+function Picture (name, fpath, numShown, numClicked, htmlID) {
     this.name = name;
-    this.filepath = filepath;
+    this.fpath = fpath;
     this.numShown = numShown;
     this.numClicked = numClicked;
     this.htmlID = htmlID;
@@ -17,7 +17,7 @@ const game = {
             new Picture('Breakfast Machine', 'img/breakfast.jpg', 0, 0, 'breakfast'),
             new Picture('Meatball Bubble Gum', 'img/bubblegum.jpg', 0, 0, 'bubblegum'),
             new Picture('Chair', 'img/chair.jpg', 0, 0, 'chair'),
-            new Picture('Cthulhu', 'img/cthulhi.jpg', 0, 0, 'cthulhu'),
+            new Picture('Cthulhu', 'img/cthulhu.jpg', 0, 0, 'cthulhu'),
             new Picture('Dog Duck Bill', 'img/dog-duck.jpg', 0, 0, 'dog-duck'),
             new Picture('Dragon Meat', 'img/dragon.jpg', 0, 0, 'dragon'),
             new Picture('Pen Silverware', 'img/pen.jpg', 0, 0, 'pen'),
@@ -31,6 +31,8 @@ const game = {
             new Picture('Water Can', 'img/water-can.jpg', 0, 0, 'water-can'),
             new Picture('Wine Glass', 'img/wine-glass.jpg', 0, 0, 'wine-glass')
         );
+        const randomList = this.randomize();
+        this.imagePush(randomList);
     },
     
     randomize: function () {
@@ -42,8 +44,19 @@ const game = {
             } else continue;
         };
         return randomImages;
+    },
+
+    imagePush: function (randomList) {
+        const images = document.querySelectorAll('div.one-third');
+        for (let i = 0; i < randomList.length; i++){
+            const ele = document.createElement('img');
+            const sect = images[i];
+            ele.src = `${randomList[i].fpath}`;
+            console.log(ele);
+            sect.appendChild(ele);
+        }
     }
+
 };
 
 game.start();
-console.log(game.randomize());
