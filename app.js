@@ -31,8 +31,19 @@ const game = {
             new Picture('Water Can', 'img/water-can.jpg', 0, 0, 'water-can'),
             new Picture('Wine Glass', 'img/wine-glass.jpg', 0, 0, 'wine-glass')
         );
+    },
+    
+    randomize: function () {
+        const randomImages = [];
+        while (randomImages.length < 3) {
+            const image = this.images[Math.floor(Math.random() * this.images.length)];
+            if (!randomImages.includes(image)) {
+                randomImages.push(image);
+            } else continue;
+        };
+        return randomImages;
     }
 };
 
 game.start();
-console.log(game.images);
+console.log(game.randomize());
