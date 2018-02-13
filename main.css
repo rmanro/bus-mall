@@ -48,3 +48,8 @@ ul {
     width: 110px;
     text-align: right;
 }
+
+#chartdiv {
+    width: 700px;
+    height: 500px;
+}
