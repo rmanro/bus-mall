@@ -107,14 +107,16 @@ const game = {
         const nameArray = [];
         const clickArray = [];
         for (let i = 0; i < this.images.length; i++){
-            nameArray.push(this.images[i].name);
-            clickArray.push(this.images[i].numClicked);
+            if (this.images[i].numClicked > 0) {
+                clickArray.push(this.images[i].numClicked);
+                nameArray.push(this.images[i].name);
+            }
         }
         console.log(nameArray);
         console.log(clickArray);
         const ctx = document.getElementById('chart').getContext('2d');
         new Chart(ctx, {
-            type: 'horizontalBar',
+            type: 'bar',
             data: {
                 labels: nameArray,
                 datasets: [{
@@ -179,7 +181,13 @@ const game = {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
                         }
                     }]
                 }
