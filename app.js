@@ -50,21 +50,7 @@ const game = {
         };
         this.imagePush(randomList);
 
-        const imagearea = document.getElementById('grid');
-        imagearea.addEventListener('click', function(){
-            const url = event.target.src.slice(60);
-            let listCheck = false;
-            let i = 0;
-            while (listCheck === false) {
-                if (url === game.images[i].fpath){
-                    game.images[i].numClicked++;
-                    listCheck = true;
-                } else{
-                    i++;
-                };
-            };
-            game.resetImages();
-        });
+        
     },
     
     randomize: function () {
@@ -94,10 +80,26 @@ const game = {
             images[i].textContent = '';
         }
         totalClicks++;
-        if (totalClicks !== 25) this.nextStep();
+        console.log(totalClicks);
+        if (totalClicks < 25) this.nextStep();
     }
 
 };
 
 game.start();
-console.log('reached 25');
+
+const imagearea = document.getElementById('grid');
+imagearea.addEventListener('click', function(){
+    const url = event.target.src.slice(60);
+    let listCheck = false;
+    let i = 0;
+    while (listCheck === false) {
+        if (url === game.images[i].fpath){
+            game.images[i].numClicked++;
+            listCheck = true;
+        } else{
+            i++;
+        };
+    };
+    game.resetImages();
+});
