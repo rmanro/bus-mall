@@ -82,7 +82,24 @@ const game = {
             images[i].textContent = '';
         }
         totalClicks++;
-        if (totalClicks < 25) this.nextStep();
+        if (totalClicks < 25){
+            this.nextStep();
+        } else this.listResults();
+            
+    },
+
+    listResults: function () {
+        const resultList = document.getElementById('clicklist');
+        for (let i = 0; i < this.images.length; i++){
+            const ele = document.createElement('li');
+            if (this.images[i].numClicked === 1) {
+                ele.textContent = `1 vote for the ${this.images[i].name}`;
+                resultList.appendChild(ele);
+            } else {
+                ele.textContent = `${this.images[i].numClicked} votes for the ${this.images[i].name}`;
+                resultList.appendChild(ele);
+            }
+        }
     }
 
 };
