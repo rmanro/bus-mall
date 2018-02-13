@@ -6,6 +6,8 @@ function Picture (name, fpath, numShown, numClicked, htmlID) {
     this.htmlID = htmlID;
 }
 
+let totalClicks = 0;
+
 const game = {
     images: [],
     start: function () {
@@ -31,7 +33,10 @@ const game = {
             new Picture('Water Can', 'img/water-can.jpg', 0, 0, 'water-can'),
             new Picture('Wine Glass', 'img/wine-glass.jpg', 0, 0, 'wine-glass')
         );
-
+        this.nextStep();
+    },
+    
+    nextStep: function () {
         const randomList = this.randomize();
         let numCheck = 0;
         for (let i = 0; i < randomList.length; i++) {
@@ -49,18 +54,16 @@ const game = {
         imagearea.addEventListener('click', function(){
             const url = event.target.src.slice(60);
             let listCheck = false;
-            console.log(listCheck);
             let i = 0;
             while (listCheck === false) {
                 if (url === game.images[i].fpath){
-                    console.log(game.images[i].fpath);
                     game.images[i].numClicked++;
                     listCheck = true;
                 } else{
                     i++;
                 };
             };
-            console.log('test', i);
+            game.resetImages();
         });
     },
     
@@ -83,9 +86,18 @@ const game = {
             ele.src = `${randomList[i].fpath}`;
             sect.appendChild(ele);
         }
-    }
+    },
     
+    resetImages: function () {
+        const images = document.querySelectorAll('div.one-third');
+        for (let i = 0; i < images.length; i ++) {
+            images[i].textContent = '';
+        }
+        totalClicks++;
+        if (totalClicks !== 25) this.nextStep();
+    }
 
 };
 
 game.start();
+console.log('reached 25');
