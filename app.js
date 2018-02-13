@@ -31,6 +31,7 @@ const game = {
             new Picture('Water Can', 'img/water-can.jpg', 0, 0, 'water-can'),
             new Picture('Wine Glass', 'img/wine-glass.jpg', 0, 0, 'wine-glass')
         );
+
         const randomList = this.randomize();
         let numCheck = 0;
         for (let i = 0; i < randomList.length; i++) {
@@ -43,6 +44,24 @@ const game = {
             };
         };
         this.imagePush(randomList);
+
+        const imagearea = document.getElementById('grid');
+        imagearea.addEventListener('click', function(){
+            const url = event.target.src.slice(60);
+            let listCheck = false;
+            console.log(listCheck);
+            let i = 0;
+            while (listCheck === false) {
+                if (url === game.images[i].fpath){
+                    console.log(game.images[i].fpath);
+                    game.images[i].numClicked++;
+                    listCheck = true;
+                } else{
+                    i++;
+                };
+            };
+            console.log('test', i);
+        });
     },
     
     randomize: function () {
@@ -65,6 +84,7 @@ const game = {
             sect.appendChild(ele);
         }
     }
+    
 
 };
 
