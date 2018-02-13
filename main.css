@@ -16,3 +16,9 @@ img {
     padding: 10px;
 
 }
+
+ul {
+    margin: auto;
+    width: fit-content;
+    line-height: 1em;
+}
