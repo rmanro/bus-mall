@@ -1,3 +1,5 @@
+'use strict';
+
 function Picture (name, fpath, numShown, numClicked, htmlID) {
     this.name = name;
     this.fpath = fpath;
@@ -80,7 +82,6 @@ const game = {
             images[i].textContent = '';
         }
         totalClicks++;
-        console.log(totalClicks);
         if (totalClicks < 25) this.nextStep();
     }
 
@@ -89,7 +90,7 @@ const game = {
 game.start();
 
 const imagearea = document.getElementById('grid');
-imagearea.addEventListener('click', function(){
+imagearea.addEventListener('click', function handler(){
     const url = event.target.src.slice(-10);
     console.log(url);
     let listCheck = false;
@@ -103,4 +104,5 @@ imagearea.addEventListener('click', function(){
         };
     };
     game.resetImages();
+    if (totalClicks === 25) this.removeEventListener('click', handler);
 });
