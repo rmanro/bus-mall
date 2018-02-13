@@ -88,7 +88,7 @@ const game = {
 
     },
 
-    listResults: function () {
+    listResults: function () {  // not used currently, saving just in case needed by final output
         const resultList = document.getElementById('clicklist');
         for (let i = 0; i < this.images.length; i++){
             const ele = document.createElement('li');
@@ -104,6 +104,8 @@ const game = {
 
 
     createChart: function () {
+        const instructions = document.getElementById('instructions');
+        instructions.textContent = 'Results';
         const nameArray = [];
         const clickArray = [];
         for (let i = 0; i < this.images.length; i++){
@@ -125,38 +127,42 @@ const game = {
                     backgroundColor: [
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)'
+                        'rgba(47, 191, 114, 1)'
                     ],
                     borderColor: [
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
                         'rgba(47, 124, 191, 1)',
                         'rgba(47, 191, 186, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)'
+                        'rgba(47, 191, 114, 1)'
                     ],
                     borderWidth: 1
                 }]

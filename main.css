@@ -1,7 +1,7 @@
 img {
     height: 250px;
     width: 250px;
-    border: solid 2pt black;
+    border: solid 1.5pt black;
     margin-left: 10px;
 }
 
@@ -49,7 +49,17 @@ ul {
     text-align: right;
 }
 
+#instructions {
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    border-radius: 5px;
+    width: fit-content;
+}
+
 #chartdiv {
     width: 700px;
     height: 500px;
 }
+
