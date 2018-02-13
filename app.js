@@ -85,7 +85,7 @@ const game = {
         if (totalClicks < 25){
             this.nextStep();
         } else this.listResults();
-            
+
     },
 
     listResults: function () {
@@ -121,5 +121,7 @@ imagearea.addEventListener('click', function handler(){
         };
     };
     game.resetImages();
+    const counter = document.getElementById('counter');
+    counter.textContent = totalClicks;
     if (totalClicks === 25) this.removeEventListener('click', handler);
 });

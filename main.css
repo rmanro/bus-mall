@@ -22,3 +22,29 @@ ul {
     width: fit-content;
     line-height: 1em;
 }
+
+#busmall {
+    position: fixed;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    top: 345px;
+    right: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 105px;
+}
+
+#counter {
+    position: fixed;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 5px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    top: 315px;
+    right: 0px;
+    border-top-left-radius: 5px;
+    width: 110px;
+    text-align: right;
+}
