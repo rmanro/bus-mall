@@ -32,6 +32,16 @@ const game = {
             new Picture('Wine Glass', 'img/wine-glass.jpg', 0, 0, 'wine-glass')
         );
         const randomList = this.randomize();
+        let numCheck = 0;
+        for (let i = 0; i < randomList.length; i++) {
+            if (randomList[i].name === this.images[numCheck].name){
+                this.images[numCheck].numShown++;
+                numCheck = 0;
+            } else {
+                numCheck++;
+                i--;
+            };
+        };
         this.imagePush(randomList);
     },
     
@@ -52,7 +62,6 @@ const game = {
             const ele = document.createElement('img');
             const sect = images[i];
             ele.src = `${randomList[i].fpath}`;
-            console.log(ele);
             sect.appendChild(ele);
         }
     }
