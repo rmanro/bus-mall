@@ -72,6 +72,21 @@ ul {
          animation: fadein 2s;
 }
 
+.asterik {
+    position: fixed;
+    right: 0px;
+    top: 240px;
+    color: white;
+    background-color: #2F7CBF;
+    width: fit-content;
+    padding: 10px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
 
 @keyframes fadein {
  from { opacity: 0; }
@@ -103,6 +118,16 @@ ul {
 }
 
 @keyframes slidein {
+    from {
+      right: -100px;;
+    }
+  
+    to {
+      right: 0px;
+    }
+  }
+
+  @keyframes slidein2 {
     from {
       right: -100px;;
     }

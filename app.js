@@ -114,8 +114,11 @@ const game = {
                 nameArray.push(this.images[i].name);
             }
         }
-        console.log(nameArray);
-        console.log(clickArray);
+        const main = document.getElementById('main');
+        const h4 = document.createElement('h4');
+        h4.className = 'asterik';
+        h4.textContent = 'Only Clicked Items Shown';
+        main.appendChild(h4);
         const ctx = document.getElementById('chart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
