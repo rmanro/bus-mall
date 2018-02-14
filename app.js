@@ -1,11 +1,10 @@
 'use strict';
 
-function Picture (name, fpath, numShown, numClicked, htmlID) {
+function Picture (name, fpath, numShown, numClicked) {
     this.name = name;
     this.fpath = fpath;
     this.numShown = numShown;
     this.numClicked = numClicked;
-    this.htmlID = htmlID;
 }
 
 let totalClicks = 0;
@@ -13,31 +12,42 @@ let totalClicks = 0;
 const game = {
     images: [],
     start: function () {
-        this.images.push(
-            new Picture('R2D2 Bag', 'img/01.jpg', 0, 0, 'bag'),
-            new Picture('Banana Slicer', 'img/02.jpg', 0, 0, 'banana'),
-            new Picture('Bathroom Stand', 'img/03.jpg', 0, 0, 'bathroom'),
-            new Picture('Boots', 'img/04.jpg', 0, 0, 'boots'),
-            new Picture('Breakfast Machine', 'img/05.jpg', 0, 0, 'breakfast'),
-            new Picture('Meatball Bubble Gum', 'img/06.jpg', 0, 0, 'bubblegum'),
-            new Picture('Chair', 'img/07.jpg', 0, 0, 'chair'),
-            new Picture('Cthulhu', 'img/08.jpg', 0, 0, 'cthulhu'),
-            new Picture('Dog Duck Bill', 'img/09.jpg', 0, 0, 'dog-duck'),
-            new Picture('Dragon Meat', 'img/10.jpg', 0, 0, 'dragon'),
-            new Picture('Pen Silverware', 'img/11.jpg', 0, 0, 'pen'),
-            new Picture('Pet Sweep', 'img/12.jpg', 0, 0, 'pet-sweep'),
-            new Picture('Pizza Scissors', 'img/13.jpg', 0, 0, 'scissors'),
-            new Picture('Shark Sleeping Bag', 'img/14.jpg', 0, 0, 'shark'),
-            new Picture('Baby Sweeper', 'img/15.png', 0, 0, 'sweep'),
-            new Picture('Tauntaun Sleeping Bag', 'img/16.jpg', 0, 0, 'tauntaun'),
-            new Picture('Unicorn Meat', 'img/17.jpg', 0, 0, 'unicorn'),
-            new Picture('USB Tentacle','img/18.gif', 0, 0, 'usb'),
-            new Picture('Water Can', 'img/19.jpg', 0, 0, 'water-can'),
-            new Picture('Wine Glass', 'img/20.jpg', 0, 0, 'wine-glass')
-        );
-        this.nextStep();
-    },
 
+        if (localStorage.getItem('localImages')){
+            const imageArray = JSON.parse(localStorage.getItem('localImages'));
+            for (let i = 0; i < imageArray.length; i++) {
+                const newArray = new Picture(imageArray[i].name,imageArray[i].fpath,imageArray[i].numShown,imageArray[i].numClicked);
+                this.images.push(newArray);
+            }
+        } else {
+
+            this.images.push(
+                new Picture('R2D2 Bag', 'img/01.jpg', 0, 0),
+                new Picture('Banana Slicer', 'img/02.jpg', 0, 0),
+                new Picture('Bathroom Stand', 'img/03.jpg', 0, 0),
+                new Picture('Boots', 'img/04.jpg', 0, 0),
+                new Picture('Breakfast Machine', 'img/05.jpg', 0, 0),
+                new Picture('Meatball Bubble Gum', 'img/06.jpg', 0, 0),
+                new Picture('Chair', 'img/07.jpg', 0, 0),
+                new Picture('Cthulhu', 'img/08.jpg', 0, 0),
+                new Picture('Dog Duck Bill', 'img/09.jpg', 0, 0),
+                new Picture('Dragon Meat', 'img/10.jpg', 0, 0),
+                new Picture('Pen Silverware', 'img/11.jpg', 0, 0),
+                new Picture('Pet Sweep', 'img/12.jpg', 0, 0),
+                new Picture('Pizza Scissors', 'img/13.jpg', 0, 0),
+                new Picture('Shark Sleeping Bag', 'img/14.jpg', 0, 0),
+                new Picture('Baby Sweeper', 'img/15.png', 0, 0),
+                new Picture('Tauntaun Sleeping Bag', 'img/16.jpg', 0, 0),
+                new Picture('Unicorn Meat', 'img/17.jpg', 0, 0),
+                new Picture('USB Tentacle','img/18.gif', 0, 0),
+                new Picture('Water Can', 'img/19.jpg', 0, 0),
+                new Picture('Wine Glass', 'img/20.jpg', 0, 0)
+            );
+            this.nextStep();
+        }
+        console.log(this.images);
+    },
+    
     nextStep: function () {
         const randomList = this.randomize();
         let numCheck = 0;
@@ -120,7 +130,7 @@ const game = {
         h4.textContent = 'Only Clicked Items Shown';
         main.appendChild(h4);
         const ctx = document.getElementById('chart').getContext('2d');
-        new Chart(ctx, {
+        new Chart(ctx, {                                               //eslint disable line
             type: 'bar',
             data: {
                 labels: nameArray,
