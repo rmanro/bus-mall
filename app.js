@@ -43,8 +43,8 @@ const game = {
                 new Picture('Water Can', 'img/19.jpg', 0, 0),
                 new Picture('Wine Glass', 'img/20.jpg', 0, 0)
             );
-            this.nextStep();
         }
+        this.nextStep();
         console.log(this.images);
     },
     
@@ -116,6 +116,7 @@ const game = {
     createChart: function () {
         const instructions = document.getElementById('instructions');
         instructions.textContent = 'Results';
+        localStorage.setItem('localImages', JSON.stringify(this.images));
         const nameArray = [];
         const clickArray = [];
         for (let i = 0; i < this.images.length; i++){
