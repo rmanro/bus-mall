@@ -84,11 +84,11 @@ const game = {
         totalClicks++;
         if (totalClicks < 25){
             this.nextStep();
-        } else this.listResults();
+        } else this.createChart();
 
     },
 
-    listResults: function () {
+    listResults: function () {  // not used currently, saving just in case needed by final output
         const resultList = document.getElementById('clicklist');
         for (let i = 0; i < this.images.length; i++){
             const ele = document.createElement('li');
@@ -100,6 +100,92 @@ const game = {
                 resultList.appendChild(ele);
             }
         }
+    },
+
+
+    createChart: function () {
+        const instructions = document.getElementById('instructions');
+        instructions.textContent = 'Results';
+        const nameArray = [];
+        const clickArray = [];
+        for (let i = 0; i < this.images.length; i++){
+            if (this.images[i].numClicked > 0) {
+                clickArray.push(this.images[i].numClicked);
+                nameArray.push(this.images[i].name);
+            }
+        }
+        const main = document.getElementById('main');
+        const h4 = document.createElement('h4');
+        h4.className = 'asterik';
+        h4.textContent = 'Only Clicked Items Shown';
+        main.appendChild(h4);
+        const ctx = document.getElementById('chart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: nameArray,
+                datasets: [{
+                    label: '# of Clicks',
+                    data: clickArray,
+                    backgroundColor: [
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)',
+                        'rgba(47, 124, 191, 1)',
+                        'rgba(47, 191, 186, 1)',
+                        'rgba(47, 191, 114, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
+                }
+            }
+        });
     }
 
 };
@@ -109,7 +195,6 @@ game.start();
 const imagearea = document.getElementById('grid');
 imagearea.addEventListener('click', function handler(){
     const url = event.target.src.slice(-10);
-    console.log(url);
     let listCheck = false;
     let i = 0;
     while (listCheck === false) {
