@@ -8,7 +8,6 @@ function Picture (name, fpath, numShown, numClicked) {
 }
 
 let totalClicks = 0;
-let firstTime = true;
 
 const game = {
     images: [],
@@ -18,7 +17,6 @@ const game = {
     start: function () {
 
         if (localStorage.getItem('localImages')){
-            firstTime = false;
             const imageArray = JSON.parse(localStorage.getItem('localImages'));
             for (let i = 0; i < imageArray.length; i++) {
                 const newArray = new Picture(imageArray[i].name,imageArray[i].fpath,imageArray[i].numShown,imageArray[i].numClicked);
@@ -289,9 +287,8 @@ const game = {
                 stack: 'Stack 1',
                 data: game.totalShownArray
             }]
-        
         };
-        new Chart(ctx, {                                               //eslint disable line
+        new Chart(ctx, {    //eslint disable line
             type: 'bar',
             data: barChartData,
             options: {
