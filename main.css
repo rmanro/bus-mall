@@ -30,13 +30,12 @@ ul {
 
 #busmall {
     position: fixed;
+    z-index: 1;
     color: white;
     background-color: #2F7CBF;
     padding: 10px;
     top: 345px;
     right: 0px;
-    /* border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px; */
     width: 105px;
     animation-duration: 2s;
     animation-name: slidein;
@@ -49,9 +48,8 @@ ul {
     padding: 5px;
     padding-left: 10px;
     padding-bottom: 0px;
-    top: 315px;
+    top: 300px;
     right: 0px;
-    /* border-top-left-radius: 5px; */
     width: 110px;
     text-align: right;
     animation-duration: 2s;
@@ -63,7 +61,6 @@ ul {
     background-color: #2F7CBF;
     padding: 10px;
     margin: 10px auto 10px auto;
-    /* border-radius: 5px; */
     width: fit-content;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -85,6 +82,18 @@ ul {
      -ms-animation: fadein 2s; /* Internet Explorer */
       -o-animation: fadein 2s; /* Opera < 12.1 */
          animation: fadein 2s;
+}
+
+#bus {
+    z-index: 0;
+    border: none;
+    position: fixed;
+    top: 300px;
+    right: 65px;
+    width: 50px;
+    height: 50px;
+    animation-duration: 2s;
+    animation-name: slidein2;
 }
 
 
@@ -133,7 +142,7 @@ ul {
     }
   
     to {
-      right: 0px;
+      right: 65px;
     }
   }
 
