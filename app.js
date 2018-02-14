@@ -8,16 +8,23 @@ function Picture (name, fpath, numShown, numClicked) {
 }
 
 let totalClicks = 0;
+let firstTime = true;
 
 const game = {
     images: [],
+    sessionClicks: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    prevSeshClicks: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    totalShownArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     start: function () {
 
         if (localStorage.getItem('localImages')){
+            firstTime = false;
             const imageArray = JSON.parse(localStorage.getItem('localImages'));
             for (let i = 0; i < imageArray.length; i++) {
                 const newArray = new Picture(imageArray[i].name,imageArray[i].fpath,imageArray[i].numShown,imageArray[i].numClicked);
                 this.images.push(newArray);
+                this.prevSeshClicks[i] = imageArray[i].numClicked;
+                this.totalShownArray[i] = imageArray[i].numShown;
             }
         } else {
 
@@ -47,13 +54,14 @@ const game = {
         this.nextStep();
         console.log(this.images);
     },
-    
+
     nextStep: function () {
         const randomList = this.randomize();
         let numCheck = 0;
         for (let i = 0; i < randomList.length; i++) {
             if (randomList[i].name === this.images[numCheck].name){
                 this.images[numCheck].numShown++;
+                this.totalShownArray[numCheck]++;
                 numCheck = 0;
             } else {
                 numCheck++;
@@ -131,56 +139,161 @@ const game = {
         h4.textContent = 'Only Clicked Items Shown';
         main.appendChild(h4);
         const ctx = document.getElementById('chart').getContext('2d');
+        const barChartData = {
+            labels: nameArray,
+            datasets: [{
+                label: 'Previous User(s) Total Clicks',
+                backgroundColor: [
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)'
+                ],
+                borderColor: [
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)',
+                    'rgba(47, 124, 191, 1)'
+                ],
+                borderWidth: 1,
+                stack: 'Stack 0',
+                data: game.prevSeshClicks
+            }, {
+                label: 'Current User Clicks',
+                backgroundColor: [
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)'
+                ],
+                borderColor: [
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)',
+                    'rgba(47, 191, 186, 1)'
+                ],
+                borderWidth: 1,
+                stack: 'Stack 0',
+                data: game.sessionClicks
+            }, {
+                label: 'Total Shown for All Users',
+                backgroundColor: [
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)'
+                ],
+                borderColor: [
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)',
+                    'rgba(47, 191, 114, 1)'
+                ],
+                borderWidth: 1,
+                stack: 'Stack 1',
+                data: game.totalShownArray
+            }]
+        
+        };
         new Chart(ctx, {                                               //eslint disable line
             type: 'bar',
-            data: {
-                labels: nameArray,
-                datasets: [{
-                    label: '# of Clicks',
-                    data: clickArray,
-                    backgroundColor: [
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)'
-                    ],
-                    borderColor: [
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)',
-                        'rgba(47, 124, 191, 1)',
-                        'rgba(47, 191, 186, 1)',
-                        'rgba(47, 191, 114, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
+            data: barChartData,
             options: {
                 scales: {
                     yAxes: [{
@@ -211,6 +324,7 @@ imagearea.addEventListener('click', function handler(){
     while (listCheck === false) {
         if (url === game.images[i].fpath){
             game.images[i].numClicked++;
+            game.sessionClicks[i]++;
             listCheck = true;
         } else{
             i++;
