@@ -56,6 +56,21 @@ ul {
     animation-name: slidein;
 }
 
+#counter2 {
+    position: fixed;
+    color: #2F7CBF;
+    background-color: #2F7CBF;
+    padding: 5px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    top: 300px;
+    right: 0px;
+    width: 110px;
+    text-align: right;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
 #instructions {
     color: white;
     background-color: #2F7CBF;

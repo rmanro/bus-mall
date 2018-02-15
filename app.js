@@ -331,5 +331,8 @@ imagearea.addEventListener('click', function handler(){
     game.resetImages();
     const counter = document.getElementById('counter');
     counter.textContent = totalClicks;
-    if (totalClicks === 25) this.removeEventListener('click', handler);
+    if (totalClicks === 25) {
+        counter.id = 'counter2';
+        this.removeEventListener('click', handler);
+    }
 });
