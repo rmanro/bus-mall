@@ -112,6 +112,31 @@ ul {
     animation-name: slidein2;
 }
 
+#reset {
+    visibility: hidden;
+}
+
+#resetbutton {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    top: 185px;
+    right: 0px;
+    width: 105px;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    cursor: pointer;
+    color: black;
+}
 
 @keyframes fadein {
  from { opacity: 0; }

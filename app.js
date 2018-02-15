@@ -100,8 +100,11 @@ const game = {
         totalClicks++;
         if (totalClicks < 25){
             this.nextStep();
-        } else this.createChart();
-
+        } else {
+            const reset = document.getElementById('reset');
+            reset.id = 'resetbutton';
+            this.createChart();
+        }
     },
 
     listResults: function () {  // not used currently, saving just in case needed by final output
@@ -335,4 +338,10 @@ imagearea.addEventListener('click', function handler(){
         counter.id = 'counter2';
         this.removeEventListener('click', handler);
     }
+});
+
+const linkarea = document.getElementById('reset');
+linkarea.addEventListener('click', function (){
+    localStorage.clear();
+    window.location.reload(true);
 });
