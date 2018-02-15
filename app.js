@@ -121,7 +121,8 @@ const game = {
 
     createChart: function () {
         const instructions = document.getElementById('instructions');
-        instructions.textContent = 'Results';
+        const container = instructions.parentNode;
+        container.removeChild(instructions);
         localStorage.setItem('localImages', JSON.stringify(this.images));
         const nameArray = [];
         const clickArray = [];
@@ -134,7 +135,7 @@ const game = {
         const main = document.getElementById('main');
         const h4 = document.createElement('h4');
         h4.className = 'asterik';
-        h4.textContent = 'Only Clicked Items Shown';
+        h4.textContent = 'Results';
         main.appendChild(h4);
         const ctx = document.getElementById('chart').getContext('2d');
         const barChartData = {
@@ -289,7 +290,7 @@ const game = {
             }]
         };
         new Chart(ctx, {    //eslint disable line
-            type: 'bar',
+            type: 'horizontalBar',
             data: barChartData,
             options: {
                 scales: {
