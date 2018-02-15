@@ -102,6 +102,8 @@ const game = {
             this.nextStep();
         } else {
             const reset = document.getElementById('reset');
+            const newuser = document.getElementById('newu');
+            newuser.id = 'newuser';
             reset.id = 'resetbutton';
             this.createChart();
         }
@@ -343,5 +345,10 @@ imagearea.addEventListener('click', function handler(){
 const linkarea = document.getElementById('reset');
 linkarea.addEventListener('click', function (){
     localStorage.clear();
+    window.location.reload(true);
+});
+
+const newuserarea = document.getElementById('newu');
+newuserarea.addEventListener('click', function (){
     window.location.reload(true);
 });

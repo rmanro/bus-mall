@@ -92,12 +92,9 @@ ul {
     background-color: #2F7CBF;
     width: fit-content;
     padding: 10px;
-    padding-right: 21px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
+    padding-right: 100px;
+    animation-duration: 1s;
+    animation-name: slidein;
 }
 
 #bus {
@@ -108,7 +105,7 @@ ul {
     right: 65px;
     width: 50px;
     height: 50px;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-name: slidein2;
 }
 
@@ -117,6 +114,23 @@ ul {
 }
 
 #resetbutton {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    top: 460px;
+    right: 0px;
+    width: 105px;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+#newu{
+    visibility: hidden;
+}
+
+#newuser {
     position: fixed;
     z-index: 1;
     color: white;
