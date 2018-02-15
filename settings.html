@@ -1,0 +1,23 @@
+<!DOCTYPE = html>
+<html>
+    <head>
+        <title>Bus Mall Settings</title>
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="skeleton.css">
+        <link rel="stylesheet" type="text/css" href="settings.css">
+    </head>
+    <body>
+        <h1>Bus Mall Settings</h1>
+        <form id="settings">
+            <div class="row">
+                <div class="two columns">
+                    <label for="numberOfImages"># of Images Shown</label>
+                    <input name="numberOfImages" class="u-full-width" type="number" min="2" max="5">
+                    <label for="surveyRounds"># of Survey Rounds</label>
+                    <input name="surveyRounds" class="u-full-width" type="number" min="5" max="20">
+                    <input class="button-primary" type="submit" value="Save">
+                </div>
+        </form>
+        <script src="settings.js"></script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+h1 {
+    color: white;
+    background-color: #2F7CBF;
+    padding: 5px;
+}
+
+.row {
+    padding-left: 10px;
+}
+
+.button-primary {
+    color: #2F7CBF;
+}
