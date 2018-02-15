@@ -1,6 +1,6 @@
 img {
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     border: solid 1.5pt black;
     margin-left: 10px;
     -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
@@ -23,9 +23,9 @@ img:hover {
 }
 
 .grid {
-    margin: auto;
-    width: fit-content;
-    padding: 10px;
+    /* margin: auto; */
+    /* width: fit-content; */
+    /* padding: 10px; */
 
 }
 

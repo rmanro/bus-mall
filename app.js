@@ -14,6 +14,8 @@ const game = {
     sessionClicks: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     prevSeshClicks: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     totalShownArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    numOfImages: 3,
+    numOfRounds: 25,
     start: function () {
 
         if (localStorage.getItem('localImages')){
@@ -49,8 +51,14 @@ const game = {
                 new Picture('Wine Glass', 'img/20.jpg', 0, 0)
             );
         }
+
+        if (localStorage.getItem('settings')) {
+            const settingsArray = JSON.parse(localStorage.getItem('settings'));
+            this.numOfImages = parseInt(settingsArray.numImages);
+            this.numOfRounds = parseInt(settingsArray.numRounds);
+        }
+
         this.nextStep();
-        console.log(this.images);
     },
 
     nextStep: function () {
@@ -73,7 +81,7 @@ const game = {
 
     randomize: function () {
         const randomImages = [];
-        while (randomImages.length < 3) {
+        while (randomImages.length < this.numOfImages) {
             const image = this.images[Math.floor(Math.random() * this.images.length)];
             if (!randomImages.includes(image)) {
                 randomImages.push(image);
@@ -98,7 +106,7 @@ const game = {
             images[i].textContent = '';
         }
         totalClicks++;
-        if (totalClicks < 25){
+        if (totalClicks < this.numOfRounds){
             this.nextStep();
         } else {
             const reset = document.getElementById('reset');
@@ -336,7 +344,7 @@ imagearea.addEventListener('click', function handler(){
     game.resetImages();
     const counter = document.getElementById('counter');
     counter.textContent = totalClicks;
-    if (totalClicks === 25) {
+    if (totalClicks === this.numOfRounds) {
         counter.id = 'counter2';
         this.removeEventListener('click', handler);
     }
