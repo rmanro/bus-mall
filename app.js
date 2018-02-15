@@ -16,6 +16,7 @@ const game = {
     totalShownArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     numOfImages: 3,
     numOfRounds: 25,
+    instructionsID: 'instructions',
     start: function () {
 
         if (localStorage.getItem('localImages')){
@@ -98,6 +99,25 @@ const game = {
             ele.src = `${randomList[i].fpath}`;
             sect.appendChild(ele);
         }
+        if (this.instructionsID === 'instructions'){
+            const instructions = document.getElementById('instructions');
+            switch (randomList.length) {
+            case 2:
+                break;
+            case 3:
+                instructions.id = 'instructions3';
+                this.instructionsID = 'instructions3';
+                break;
+            case 4:
+                instructions.id = 'instructions4';
+                this.instructionsID = 'instructions4';
+                break;
+            case 5:
+                instructions.id = 'instructions5';
+                this.instructionsID = 'instructions5';
+                break;
+            }
+        }
     },
 
     resetImages: function () {
@@ -133,7 +153,7 @@ const game = {
 
 
     createChart: function () {
-        const instructions = document.getElementById('instructions');
+        const instructions = document.getElementById(this.instructionsID);
         const container = instructions.parentNode;
         container.removeChild(instructions);
         localStorage.setItem('localImages', JSON.stringify(this.images));
