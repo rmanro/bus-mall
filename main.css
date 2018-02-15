@@ -8,6 +8,13 @@ img {
      -ms-animation: fadein .5s; /* Internet Explorer */
       -o-animation: fadein .5s; /* Opera < 12.1 */
          animation: fadein .5s;
+         transition:all 0.3s ease;
+}
+
+img:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .one-third {
@@ -37,13 +44,28 @@ ul {
     top: 345px;
     right: 0px;
     width: 105px;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
 }
 
 #counter {
     position: fixed;
     color: white;
+    background-color: #2F7CBF;
+    padding: 5px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    top: 300px;
+    right: 0px;
+    width: 110px;
+    text-align: right;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+#counter2 {
+    position: fixed;
+    color: #2F7CBF;
     background-color: #2F7CBF;
     padding: 5px;
     padding-left: 10px;
@@ -72,16 +94,14 @@ ul {
 .asterik {
     position: fixed;
     right: 0px;
-    top: 240px;
+    top: 112px;
     color: white;
     background-color: #2F7CBF;
     width: fit-content;
     padding: 10px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
+    padding-right: 150px;
+    animation-duration: 1s;
+    animation-name: slidein;
 }
 
 #bus {
@@ -92,10 +112,66 @@ ul {
     right: 65px;
     width: 50px;
     height: 50px;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein2;
 }
 
+#reset {
+    visibility: hidden;
+}
+
+#resetbutton {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    top: 460px;
+    right: 0px;
+    width: 105px;
+    animation-duration: 2s;
+    animation-name: slidein;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#resetbutton:hover {
+    background-color: red;
+}
+
+#newu{
+    visibility: hidden;
+}
+
+#newuser {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    top: 185px;
+    right: 0px;
+    width: 105px;
+    animation-duration: 2s;
+    animation-name: slidein;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#newuser:hover{
+    background-color: rgb(47, 191, 114);
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    cursor: pointer;
+    color: white;
+}
 
 @keyframes fadein {
  from { opacity: 0; }
@@ -148,7 +224,7 @@ ul {
 
 #chartdiv {
     width: 700px;
-    height: 500px;
+    height: 700px;
 }
 
 
