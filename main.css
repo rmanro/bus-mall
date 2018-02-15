@@ -8,6 +8,13 @@ img {
      -ms-animation: fadein .5s; /* Internet Explorer */
       -o-animation: fadein .5s; /* Opera < 12.1 */
          animation: fadein .5s;
+         transition:all 0.3s ease;
+}
+
+img:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .one-third {
@@ -37,7 +44,7 @@ ul {
     top: 345px;
     right: 0px;
     width: 105px;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
 }
 
@@ -52,7 +59,7 @@ ul {
     right: 0px;
     width: 110px;
     text-align: right;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
 }
 
@@ -92,7 +99,7 @@ ul {
     background-color: #2F7CBF;
     width: fit-content;
     padding: 10px;
-    padding-right: 100px;
+    padding-right: 150px;
     animation-duration: 1s;
     animation-name: slidein;
 }
@@ -105,7 +112,7 @@ ul {
     right: 65px;
     width: 50px;
     height: 50px;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-name: slidein2;
 }
 
@@ -124,6 +131,13 @@ ul {
     width: 105px;
     animation-duration: 2s;
     animation-name: slidein;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#resetbutton:hover {
+    background-color: red;
 }
 
 #newu{
@@ -141,6 +155,13 @@ ul {
     width: 105px;
     animation-duration: 2s;
     animation-name: slidein;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#newuser:hover{
+    background-color: rgb(47, 191, 114);
 }
 
 a {
@@ -149,7 +170,7 @@ a {
 
 a:hover {
     cursor: pointer;
-    color: black;
+    color: white;
 }
 
 @keyframes fadein {
