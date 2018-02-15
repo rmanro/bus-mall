@@ -7,4 +7,6 @@ settingsForm.addEventListener('submit', function () {
     const numRounds = this['surveyRounds'].value;
     const settings = {numImages: numImages, numRounds: numRounds};
     localStorage.setItem('settings', JSON.stringify(settings));
+    this.reset();
+    this['savebutton'].blur();
 });

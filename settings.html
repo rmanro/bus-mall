@@ -12,10 +12,11 @@
             <div class="row">
                 <div class="two columns">
                     <label for="numberOfImages"># of Images Shown</label>
-                    <input name="numberOfImages" class="u-full-width" type="number" min="2" max="5">
+                    <input name="numberOfImages" class="u-full-width" type="number" min="2" max="5" required="required">
                     <label for="surveyRounds"># of Survey Rounds</label>
-                    <input name="surveyRounds" class="u-full-width" type="number" min="5" max="20">
-                    <input class="button-primary" type="submit" value="Save">
+                    <input name="surveyRounds" class="u-full-width" type="number" min="5" max="20" required="required">
+                    <input name = "savebutton" class="button-primary" type="submit" value="Save">
+                    <h4 id = "return">Return To Survey</h4>
                 </div>
         </form>
         <script src="settings.js"></script>

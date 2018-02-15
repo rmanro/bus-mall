@@ -8,6 +8,15 @@ h1 {
     padding-left: 10px;
 }
 
-.button-primary {
-    color: #2F7CBF;
+#return {
+    color: white;
+    background-color: #2F7CBF;
+    padding: 5px;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#return:hover {
+    background-color: rgb(47, 191, 114);
 }
