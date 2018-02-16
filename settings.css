@@ -11,7 +11,7 @@ h1 {
 #return {
     color: white;
     background-color: #2F7CBF;
-    padding: 5px;
+    padding: 10px;
     transition-property: background;
     transition-duration: .5s;
     transition-timing-function: linear;
