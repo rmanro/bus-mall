@@ -302,9 +302,9 @@ const game = {
                 stack: 'Stack 1',
                 data: game.totalShownArray
             }]
-        };
-        new Chart(ctx, {    //eslint disable line
-            type: 'horizontalBar',
+        }; /* eslint-disable */
+        new Chart(ctx, { 
+            type: 'horizontalBar', /* eslint-enable */
             data: barChartData,
             options: {
                 scales: {
