@@ -20,3 +20,13 @@ h1 {
 #return:hover {
     background-color: rgb(47, 191, 114);
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: white;
+}
