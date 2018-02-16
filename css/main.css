@@ -1,6 +1,6 @@
 img {
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     border: solid 1.5pt black;
     margin-left: 10px;
     -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
@@ -20,13 +20,6 @@ img:hover {
 .one-third {
     display: inline-block;
     padding: 10px;
-}
-
-.grid {
-    margin: auto;
-    width: fit-content;
-    padding: 10px;
-
 }
 
 ul {
@@ -79,16 +72,15 @@ ul {
 }
 
 #instructions {
+    position: fixed;
+    top: 220px;
+    right: 0px;
     color: white;
     background-color: #2F7CBF;
     padding: 10px;
     margin: 10px auto 10px auto;
-    width: fit-content;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
+    animation-duration: 3s;
+    animation-name: slidein3;
 }
 
 .asterik {
@@ -219,6 +211,16 @@ a:hover {
   
     to {
       right: 65px;
+    }
+  }
+
+  @keyframes slidein3 {
+    from {
+      right: -487px;;
+    }
+  
+    to {
+      right: 0px;
     }
   }
 

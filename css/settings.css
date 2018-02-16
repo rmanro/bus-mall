@@ -1,0 +1,32 @@
+h1 {
+    color: white;
+    background-color: #2F7CBF;
+    padding: 5px;
+}
+
+.row {
+    padding-left: 10px;
+}
+
+#return {
+    color: white;
+    background-color: #2F7CBF;
+    padding: 10px;
+    transition-property: background;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+}
+
+#return:hover {
+    background-color: rgb(47, 191, 114);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: white;
+}
