@@ -73,66 +73,14 @@ ul {
 
 #instructions {
     position: fixed;
-    top: 234px;
-    left: 0px;
+    top: 220px;
+    right: 0px;
     color: white;
     background-color: #2F7CBF;
     padding: 10px;
     margin: 10px auto 10px auto;
-    width: 487px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
-}
-
-#instructions3 {
-    position: fixed;
-    top: 234px;
-    left: 0px;
-    color: white;
-    background-color: #2F7CBF;
-    padding: 10px;
-    margin: 10px auto 10px auto;
-    width: 771px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
-}
-
-#instructions4 {
-    position: fixed;
-    top: 234px;
-    left: 0px;
-    color: white;
-    background-color: #2F7CBF;
-    padding: 10px;
-    margin: 10px auto 10px auto;
-    width: 1055px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
-}
-
-#instructions5 {
-    position: fixed;
-    top: 234px;
-    left: 0px;
-    color: white;
-    background-color: #2F7CBF;
-    padding: 10px;
-    margin: 10px auto 10px auto;
-    width: 2000px;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-     -ms-animation: fadein 2s; /* Internet Explorer */
-      -o-animation: fadein 2s; /* Opera < 12.1 */
-         animation: fadein 2s;
+    animation-duration: 3s;
+    animation-name: slidein3;
 }
 
 .asterik {
@@ -263,6 +211,16 @@ a:hover {
   
     to {
       right: 65px;
+    }
+  }
+
+  @keyframes slidein3 {
+    from {
+      right: -487px;;
+    }
+  
+    to {
+      right: 0px;
     }
   }
 
