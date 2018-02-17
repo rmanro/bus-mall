@@ -16,10 +16,9 @@ const game = {
     totalShownArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     numOfImages: 3,
     numOfRounds: 25,
-    instructionsID: 'instructions',
     start: function () {
 
-        if (localStorage.getItem('localImages')){
+        if (localStorage.getItem('localImages')){  //checking for previous survey results
             const imageArray = JSON.parse(localStorage.getItem('localImages'));
             for (let i = 0; i < imageArray.length; i++) {
                 const newArray = new Picture(imageArray[i].name,imageArray[i].fpath,imageArray[i].numShown,imageArray[i].numClicked);
@@ -76,8 +75,6 @@ const game = {
             };
         };
         this.imagePush(randomList);
-
-
     },
 
     randomize: function () {
@@ -117,21 +114,6 @@ const game = {
             this.createChart();
         }
     },
-
-    listResults: function () {  // not used currently, saving just in case needed by final output
-        const resultList = document.getElementById('clicklist');
-        for (let i = 0; i < this.images.length; i++){
-            const ele = document.createElement('li');
-            if (this.images[i].numClicked === 1) {
-                ele.textContent = `1 vote for the ${this.images[i].name}`;
-                resultList.appendChild(ele);
-            } else {
-                ele.textContent = `${this.images[i].numClicked} votes for the ${this.images[i].name}`;
-                resultList.appendChild(ele);
-            }
-        }
-    },
-
 
     createChart: function () {
         const instructions = document.getElementById('instructions');
