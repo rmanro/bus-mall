@@ -336,7 +336,7 @@ imagearea.addEventListener('click', function handler(){
 
 const linkarea = document.getElementById('reset');
 linkarea.addEventListener('click', function (){
-    localStorage.clear();
+    localStorage.removeItem('localImages');
     window.location.reload(true);
 });
 
