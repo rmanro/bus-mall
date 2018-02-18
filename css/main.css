@@ -106,6 +106,7 @@ ul {
     height: 50px;
     animation-duration: 1s;
     animation-name: slidein2;
+    box-shadow: none;
 }
 
 #reset {
